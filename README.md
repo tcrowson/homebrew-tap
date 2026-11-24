@@ -1,6 +1,6 @@
 # tcrowson/homebrew-tap
 
-Mac apps by Tim Crowson, Developer ID signed and notarized by Apple. Screenshots and feature docs: **[tcrowson.github.io/homebrew-tap](https://tcrowson.github.io/homebrew-tap/)**.
+[Mac apps](https://tcrowson.github.io/homebrew-tap/) by Tim Crowson, Developer ID signed and notarized by Apple.
 
 | App | What it does | Needs |
 | --- | --- | --- |
@@ -9,15 +9,8 @@ Mac apps by Tim Crowson, Developer ID signed and notarized by Apple. Screenshots
 ## Install
 
 ```bash
-brew trust --cask tcrowson/tap/system-basics
-brew install --cask tcrowson/tap/system-basics
+brew trust tcrowson/tap
+brew install --cask tcrowson/tap/<app>
 ```
 
-Homebrew 6 and later asks you to trust a third-party cask before installing it. To trust every app in this tap at once, use `brew trust tcrowson/tap` instead.
-
-## Update and uninstall
-
-```bash
-brew upgrade --cask system-basics
-brew uninstall --cask system-basics          # add --zap to also remove its settings
-```
+Each app's page has its exact commands, plus how to update and uninstall.
