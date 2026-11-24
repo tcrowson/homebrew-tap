@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>System Basics</title>
+<meta name="description" content="System Basics: a small Mac system monitor with live graphs in a window, the menu bar and the Dock.">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../">Tim Crowson · Mac apps</a>
+    <nav><a href="#install">Install</a><a href="#features">Features</a><a href="#faq">FAQ</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>System Basics</h1>
+  <p class="lede">A small, quiet system monitor for the Mac. Live graphs for CPU, GPU, memory, network, temperature and power, in a window, in the menu bar and on the Dock icon. Nothing else: no accounts, no ads, and nothing leaves your Mac.</p>
+
+  <figure>
+    <img src="img/window.png" alt="The System Basics window: CPU, GPU, memory, network, temperature, power, top processes, disk and per-core cards">
+  </figure>
+
+  <h2 id="install">Install</h2>
+  <pre><code>brew tap tcrowson/tap
+brew trust --cask tcrowson/tap/system-basics
+brew install --cask system-basics</code></pre>
+  <p>Requires macOS 15 (Sequoia) or later. Update with <code>brew upgrade --cask system-basics</code>; remove with <code>brew uninstall --cask system-basics</code> (add <code>--zap</code> to also remove its settings).</p>
+
+  <h2 id="features">Features</h2>
+
+  <h3>The window</h3>
+  <ul class="features">
+    <li><strong>Cards for every metric</strong>: CPU, GPU, Memory, Network, Temperature, Power, Top Processes, Disk and Per-core, each with a large history graph. Hover a graph to read the value at any moment.</li>
+    <li><strong>Fits any width</strong>: cards pack into as many columns as the window allows, from one up to four.</li>
+    <li><strong>Collapse or hide</strong> any card by clicking its header, or hide it from View ▸ Cards. Hidden cards stop measuring.</li>
+    <li><strong>This Mac</strong>: a panel with the model, chip, memory, macOS version, uptime, startup disk, displays and battery health. Choose which facts show in Settings ▸ System Info.</li>
+    <li><strong>Per-core</strong>: one small graph per core, grouped by core type, using the names your chip reports.</li>
+    <li><strong>Top Processes</strong>: your five busiest processes by CPU or memory, including the work of short-lived helper processes such as compilers.</li>
+  </ul>
+
+  <h3>The menu bar</h3>
+  <figure class="bar">
+    <img src="img/menubar.png" alt="System Basics in the menu bar: CPU and GPU history graphs and a memory ring">
+    <figcaption>CPU and GPU history graphs and a memory ring, shown at twice actual size.</figcaption>
+  </figure>
+  <ul class="features">
+    <li><strong>One menu bar item, your readouts</strong>: choose any of CPU, GPU, Memory, Network and Temperature, in the order you like.</li>
+    <li><strong>A style per readout</strong>: text, history graph, bar, per-core bars (CPU), ring (memory), or up/down rates and graph (network).</li>
+    <li><strong>Tinted or monochrome</strong>: tinted uses a color per metric; monochrome matches the menu bar's own icons on any wallpaper.</li>
+    <li><strong>Turns red past a limit</strong>: CPU or GPU above 90%, memory above 85%, temperature above 85 °C.</li>
+    <li><strong>Click for details</strong>: current values for every metric, the top five processes, and quick access to the window, refresh rate and Settings.</li>
+  </ul>
+
+  <div class="shots">
+    <figure class="settings">
+      <img src="img/settings-menubar.png" alt="Settings, Menu Bar tab: a live preview of the item, and a checkbox and style menu per readout">
+      <figcaption>Settings ▸ Menu Bar: drag readouts in the live preview to reorder them, and pick a style for each.</figcaption>
+    </figure>
+    <figure class="dock">
+      <img src="img/dock.png" alt="The Dock icon showing CPU usage as a percentage and a small graph">
+      <figcaption>The Dock icon can show CPU, GPU or memory live.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Light on resources</h3>
+  <ul class="features">
+    <li>Measures only what is on screen, slows down when the window is hidden, and pauses when nothing is showing.</li>
+    <li>Refresh every 0.5, 1, 2 or 5 seconds; keep 60 to 600 samples of history.</li>
+    <li>Follows your Mac's light and dark appearance.</li>
+  </ul>
+
+  <h2 id="faq">FAQ</h2>
+  <h3>Why Homebrew and not the App Store?</h3>
+  <p>Temperatures and power draw come from parts of macOS the App Store doesn't allow apps to read. The app is still signed and notarized by Apple, so it opens without warnings.</p>
+  <h3>Does it collect any data?</h3>
+  <p>No. It has no network code at all: every reading stays on your Mac.</p>
+  <h3>Why don't I see every process in Top Processes?</h3>
+  <p>macOS only lets regular apps read your own processes. System services that run as root are not listed.</p>
+  <h3>Which Macs does it support?</h3>
+  <p>macOS 15 or later. It has been developed and tested on Apple silicon; temperature and power sensors differ between chips, and a reading the Mac doesn't provide is simply left out.</p>
+</main>
+
+<footer>
+  <div class="wrap">© Tim Crowson · <a href="https://github.com/tcrowson/homebrew-tap">Homebrew tap on GitHub</a></div>
+</footer>
+</body>
+</html>
