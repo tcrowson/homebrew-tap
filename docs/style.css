@@ -46,7 +46,7 @@ h1.app-title { display: flex; align-items: center; gap: 0.3em; }
 h1.app-title img { width: 1.25em; height: 1.25em; flex: none; }
 .card h3.app-title { display: flex; align-items: center; gap: 8px; }
 .card h3.app-title img { width: 28px; height: 28px; margin: 0; border-radius: 0; }
-.lede { color: var(--dim); max-width: 46em; }
+.lede { color: var(--dim); }
 .dim { color: var(--dim); }
 
 pre, code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 15px; }
