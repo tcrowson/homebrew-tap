@@ -59,10 +59,15 @@ if [ -f "$CASK_FILE" ]; then echo "  cask: $CASK_FILE"; else echo "  missing: $C
 [ "$CHECK_ONLY" -eq 1 ] && { echo "All prerequisites present."; exit 0; }
 
 # --- Build and export ---------------------------------------------------------------------------
-step "Archiving $SCHEME (Release)"
+# Build number (CFBundleVersion, the "(n)" in About) = the app repo's commit count, so it rises with every
+# release without editing the project. BUILD_NUMBER overrides it.
+BUILD_NUMBER="${BUILD_NUMBER:-$(git rev-list --count HEAD 2>/dev/null)}"
+[ -n "$BUILD_NUMBER" ] || fail "no build number: not a git repository; set BUILD_NUMBER"
+
+step "Archiving $SCHEME (Release, build $BUILD_NUMBER)"
 rm -rf "$OUT" && mkdir -p "$OUT"
 xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration Release \
-    -archivePath "$OUT/$SCHEME.xcarchive" DEVELOPMENT_TEAM="$TEAM_ID" archive -quiet
+    -archivePath "$OUT/$SCHEME.xcarchive" DEVELOPMENT_TEAM="$TEAM_ID" CURRENT_PROJECT_VERSION="$BUILD_NUMBER" archive -quiet
 
 step "Exporting with Developer ID"
 cat > "$OUT/ExportOptions.plist" <<EOF
@@ -86,7 +91,9 @@ if gh release view "$TAG" --repo "$TAP_REPO" >/dev/null 2>&1; then
     fail "release $TAG already exists on $TAP_REPO: bump MARKETING_VERSION first"
 fi
 codesign --verify --deep --strict "$APP_PATH"
-echo "  $APP $VERSION signed by: $(codesign -dvv "$APP_PATH" 2>&1 | sed -n 's/^Authority=//p' | head -1)"
+BUILT="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$APP_PATH/Contents/Info.plist")"
+[ "$BUILT" = "$BUILD_NUMBER" ] || fail "built CFBundleVersion is $BUILT, expected $BUILD_NUMBER"
+echo "  $APP $VERSION ($BUILT) signed by: $(codesign -dvv "$APP_PATH" 2>&1 | sed -n 's/^Authority=//p' | head -1)"
 
 # --- Notarize and staple ------------------------------------------------------------------------
 step "Notarizing (usually a few minutes)"

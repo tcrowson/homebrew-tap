@@ -32,7 +32,9 @@ brew install --cask tcrowson/tap/system-basics</code></pre>
   <p class="dim">Homebrew 6 and later asks you to trust a third-party cask before installing it; <code>brew trust tcrowson/tap</code> trusts all of these apps at once.</p>
 
   <h3 id="update">Update</h3>
-  <pre><code>brew upgrade --cask system-basics</code></pre>
+  <pre><code>brew update
+brew upgrade --cask system-basics</code></pre>
+  <p class="dim"><code>brew update</code> fetches the list of new versions; without it, Homebrew may not see the latest release yet. Quit and reopen System Basics afterward to run the new version.</p>
 
   <h3 id="uninstall">Uninstall</h3>
   <pre><code>brew uninstall --cask system-basics</code></pre>
