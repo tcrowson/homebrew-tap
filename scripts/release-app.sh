@@ -8,7 +8,7 @@
 # repositories can stay private. Casks/<cask>.rb must already exist; its version and sha256 are rewritten.
 # --check only verifies the prerequisites (certificate, notary profile, gh login, cask file) and exits.
 #
-# One-time setup (see README.md): a "Developer ID Application" certificate in the login keychain, and
+# One-time setup: a "Developer ID Application" certificate in the login keychain, and
 #   xcrun notarytool store-credentials notary --apple-id <apple id> --team-id <team id>
 set -euo pipefail
 
