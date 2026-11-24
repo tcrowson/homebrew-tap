@@ -86,7 +86,7 @@ if gh release view "$TAG" --repo "$TAP_REPO" >/dev/null 2>&1; then
     fail "release $TAG already exists on $TAP_REPO: bump MARKETING_VERSION first"
 fi
 codesign --verify --deep --strict "$APP_PATH"
-echo "  $APP $VERSION signed by: $(codesign -dv "$APP_PATH" 2>&1 | sed -n 's/^Authority=//p' | head -1)"
+echo "  $APP $VERSION signed by: $(codesign -dvv "$APP_PATH" 2>&1 | sed -n 's/^Authority=//p' | head -1)"
 
 # --- Notarize and staple ------------------------------------------------------------------------
 step "Notarizing (usually a few minutes)"
