@@ -26,10 +26,18 @@
   </figure>
 
   <h2 id="install">Install</h2>
+  <p>Requires macOS 15 (Sequoia) or later.</p>
   <pre><code>brew trust --cask tcrowson/tap/system-basics
 brew install --cask tcrowson/tap/system-basics</code></pre>
-  <p>Homebrew 6 and later asks you to trust a third-party cask before installing it; <code>brew trust tcrowson/tap</code> trusts all of these apps at once.</p>
-  <p>Requires macOS 15 (Sequoia) or later. Update with <code>brew upgrade --cask system-basics</code>; remove with <code>brew uninstall --cask system-basics</code> (add <code>--zap</code> to also remove its settings).</p>
+  <p class="dim">Homebrew 6 and later asks you to trust a third-party cask before installing it; <code>brew trust tcrowson/tap</code> trusts all of these apps at once.</p>
+
+  <h3 id="update">Update</h3>
+  <pre><code>brew upgrade --cask system-basics</code></pre>
+
+  <h3 id="uninstall">Uninstall</h3>
+  <pre><code>brew uninstall --cask system-basics</code></pre>
+  <p class="dim">To also remove its settings:</p>
+  <pre><code>brew uninstall --zap --cask system-basics</code></pre>
 
   <h2 id="features">Features</h2>
 
