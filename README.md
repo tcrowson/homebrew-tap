@@ -4,7 +4,7 @@
 
 | App | What it does | Needs |
 | --- | --- | --- |
-| [System Basics](https://tcrowson.github.io/homebrew-tap/system-basics/) | Live system graphs in a window, the menu bar and the Dock | macOS 15 |
+| [System Basics Plus](https://tcrowson.github.io/homebrew-tap/system-basics/) | Live system readings in a window with six layouts, the menu bar and the Dock | macOS 15 |
 
 ## Install
 

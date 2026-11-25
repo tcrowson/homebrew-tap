@@ -18,12 +18,14 @@
 </header>
 
 <main class="wrap">
-  <h1 class="app-title"><img src="img/icon.png" alt="" width="128" height="128">System Basics</h1>
-  <p class="lede">A small, quiet system monitor for the Mac. Nothing fancy. Live graphs for CPU, GPU, memory, network, temperature and power, in a window, in the menu bar and on the Dock icon. Nothing else: no accounts, no ads, and nothing leaves your Mac. There are far more comprehensive apps available for tracking system stats. I wanted a simpler version so I made my own.</p>
+  <h1 class="app-title"><img src="img/icon.png" alt="" width="128" height="128">System Basics Plus</h1>
+  <p class="lede">A small, quiet system monitor for the Mac. Nothing fancy. Live readings for CPU, GPU, memory, network, temperature and power, in a window with six layouts to choose from, in the menu bar and on the Dock icon. Nothing else: no accounts, no ads, and nothing leaves your Mac. There are far more comprehensive apps available for tracking system stats. I wanted a simpler version so I made my own.</p>
 
   <figure>
-    <img src="img/window.png" alt="The System Basics window: CPU, GPU, memory, network, temperature, power, top processes, disk and per-core cards">
+    <img src="img/window.png?v=2" alt="The System Basics Plus window in the Hero &amp; Satellites layout: a large CPU graph with per-core traces, tiles for GPU, memory, network, power and disk, and the top processes below">
+    <figcaption>Hero &amp; Satellites, the default layout: one metric large, the others as tiles. Click a tile to bring it into focus.</figcaption>
   </figure>
+  <p class="dim">New in 0.2: six window layouts, metrics you can switch off everywhere, and the top 20 processes. The app is now named System Basics Plus; your settings carry over.</p>
 
   <h2 id="install">Install</h2>
   <p>Requires macOS 15 (Sequoia) or later.</p>
@@ -34,7 +36,7 @@ brew install --cask tcrowson/tap/system-basics</code></pre>
   <h3 id="update">Update</h3>
   <pre><code>brew update
 brew upgrade --cask system-basics</code></pre>
-  <p class="dim"><code>brew update</code> fetches the list of new versions; without it, Homebrew may not see the latest release yet. Quit and reopen System Basics afterward to run the new version.</p>
+  <p class="dim"><code>brew update</code> fetches the list of new versions; without it, Homebrew may not see the latest release yet. Quit and reopen System Basics Plus afterward to run the new version.</p>
 
   <h3 id="uninstall">Uninstall</h3>
   <pre><code>brew uninstall --cask system-basics</code></pre>
@@ -45,13 +47,42 @@ brew upgrade --cask system-basics</code></pre>
 
   <h3>The window</h3>
   <ul class="features">
-    <li><strong>Cards for every metric</strong>: CPU, GPU, Memory, Network, Temperature, Power, Top Processes, Disk and Per-core, each with a large history graph. Hover a graph to read the value at any moment.</li>
-    <li><strong>Fits any width</strong>: cards pack into as many columns as the window allows, from one up to four.</li>
-    <li><strong>Collapse or hide</strong> any card by clicking its header, or hide it from View ▸ Cards. Hidden cards stop measuring.</li>
-    <li><strong>This Mac</strong>: a panel with the model, chip, memory, macOS version, uptime, startup disk, displays and battery health. Choose which facts show in Settings ▸ System Info.</li>
-    <li><strong>Per-core</strong>: one small graph per core, grouped by core type, using the names your chip reports.</li>
-    <li><strong>Top Processes</strong>: your five busiest processes by CPU or memory, including the work of short-lived helper processes such as compilers.</li>
+    <li><strong>Six layouts</strong>: the same readings drawn six ways. Pick one in Settings ▸ General or View ▸ Layout; switching is instant and keeps the history.</li>
+    <li><strong>Your choice of metrics</strong>: CPU, Per-core, GPU, Memory, Network, Thermal, Power, Disk and Top Processes. Switch any of them off in Settings ▸ Metrics and it leaves every layout, the menu bar and the Dock, and stops being measured.</li>
+    <li><strong>Fits any size</strong>: every layout reflows from a narrow strip to a full screen and uses the height it is given.</li>
+    <li><strong>This Mac</strong>: the model, chip, memory, macOS version and thermal level in the title bar; click it for uptime, startup disk, displays and battery health. Choose the facts in Settings ▸ System Info.</li>
+    <li><strong>Per-core</strong>: every core, grouped by core type, using the names your chip reports.</li>
+    <li><strong>Top Processes</strong>: your 20 busiest processes by CPU or memory, including the work of short-lived helper processes such as compilers.</li>
   </ul>
+
+  <h3>The layouts</h3>
+  <div class="shots layouts">
+    <figure>
+      <img src="img/layout-strip.png" alt="Instrument Strip: one row per metric, each with a graph on a shared time axis">
+      <figcaption><strong>Instrument Strip</strong>: one row per metric on a shared time axis. Hover any graph and one scrubber reads every row at that moment.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/layout-numerals.png" alt="Big Numerals: each metric as one large colored number in a grid of tiles">
+      <figcaption><strong>Big Numerals</strong>: each metric as one large number, readable from across the room.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/layout-gauges.png" alt="Gauge Cluster: four dials for CPU, GPU, memory and CPU temperature above readouts and core meters">
+      <figcaption><strong>Gauge Cluster</strong>: dials for CPU, GPU, memory and CPU temperature, each with a marker at its recent peak.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/layout-bento.png" alt="Bento: tinted tiles of different sizes, each metric in its own drawing">
+      <figcaption><strong>Bento</strong>: tinted tiles in different sizes, each metric in its own drawing.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/layout-sourceList.png" alt="Source List: a sidebar of metrics with live values beside one metric shown in depth">
+      <figcaption><strong>Source List</strong>: every metric with its live value in a sidebar, and one shown in depth beside it.</figcaption>
+    </figure>
+    <figure class="settings">
+      <img src="img/settings-layout.png" alt="Settings, General tab: six preview cards, one per layout">
+      <figcaption>Settings ▸ General: pick a layout from its preview.</figcaption>
+    </figure>
+  </div>
+  <p class="dim">In Hero &amp; Satellites, each tile can also show its metric as text, a graph, a bar or a ring: use the ··· button on the tile.</p>
 
   <h3>The menu bar</h3>
   <figure class="bar">
