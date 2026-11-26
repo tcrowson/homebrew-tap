@@ -25,7 +25,7 @@
     <img src="img/window.png?v=3" alt="The System Basics Plus window in the Cards layout: a graph card each for CPU, GPU, memory, network, and power and heat, the top processes, disk space, and a small trace for every core">
     <figcaption>Cards, the layout the app opens with: a graph for everything at once.</figcaption>
   </figure>
-  <p class="dim">New in 0.2.1: Cards is back as the layout the app opens with; Bento's tiles can be resized, moved and restyled; temperatures in °C or °F; and ⌘1 to ⌘7 switch layouts.</p>
+  <p class="dim">New in 0.2.2: quit a process from any process list, and a note in This Mac when a macOS update is waiting. New in 0.2.1: Cards is back as the layout the app opens with; Bento's tiles can be resized, moved and restyled; temperatures in °C or °F; and ⌘1 to ⌘7 switch layouts.</p>
 
   <h2 id="install">Install</h2>
   <p>Requires macOS 15 (Sequoia) or later.</p>
@@ -50,9 +50,9 @@ brew upgrade --cask system-basics</code></pre>
     <li><strong>Seven layouts</strong>: the same readings drawn seven ways. Pick one in Settings ▸ General or View ▸ Layout, or press ⌘1 to ⌘7; switching is instant and keeps the history.</li>
     <li><strong>Your choice of metrics</strong>: CPU, Per-core, GPU, Memory, Network, Thermal, Power, Disk and Top Processes. Switch any of them off in Settings ▸ Metrics and it leaves every layout, the menu bar and the Dock, and stops being measured.</li>
     <li><strong>Fits any size</strong>: every layout reflows from a narrow strip to a full screen and uses the height it is given.</li>
-    <li><strong>This Mac</strong>: the model, chip, memory, macOS version and thermal level in the title bar; click it for uptime, startup disk, displays and battery health. Choose the facts in Settings ▸ System Info.</li>
+    <li><strong>This Mac</strong>: the model, chip, memory, macOS version and thermal level in the title bar; click it for uptime, startup disk, displays, battery health, and whether a macOS update is waiting. Choose the facts in Settings ▸ System Info.</li>
     <li><strong>Per-core</strong>: every core, grouped by core type, using the names your chip reports.</li>
-    <li><strong>Top Processes</strong>: your 20 busiest processes by CPU or memory, including the work of short-lived helper processes such as compilers.</li>
+    <li><strong>Top Processes</strong>: your 20 busiest processes by CPU or memory, including the work of short-lived helper processes such as compilers. Point at a row and click its ✕ to quit that process; the app asks first.</li>
   </ul>
 
   <h3>The layouts</h3>
@@ -98,7 +98,7 @@ brew upgrade --cask system-basics</code></pre>
     <li><strong>A style per readout</strong>: text, history graph, bar, per-core bars (CPU), ring (memory), or up/down rates and graph (network).</li>
     <li><strong>Tinted or monochrome</strong>: tinted uses a color per metric; monochrome matches the menu bar's own icons on any wallpaper.</li>
     <li><strong>Turns red past a limit</strong>: CPU or GPU above 90%, memory above 85%, temperature above 85 °C.</li>
-    <li><strong>Click for details</strong>: current values for every metric, the top five processes, and quick access to the window, refresh rate and Settings.</li>
+    <li><strong>Click for the menu</strong>: choose which readouts show, open the window, set the refresh rate or open Settings.</li>
   </ul>
 
   <div class="shots">
