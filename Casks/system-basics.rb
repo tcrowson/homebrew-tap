@@ -1,6 +1,6 @@
 cask "system-basics" do
-  version "0.2.0"
-  sha256 "84caec36f951770d8dcbb857d3547f9533577ff6c0858e1365e935dd25d4a7e6"
+  version "0.2.1"
+  sha256 "b642d9ed4f2a3e59cbcb762416e09c0fa9697b22f3bcf8bb570bc77c8a7efd1a"
 
   url "https://github.com/tcrowson/homebrew-tap/releases/download/system-basics-#{version}/system-basics-#{version}.zip"
   name "System Basics Plus"
